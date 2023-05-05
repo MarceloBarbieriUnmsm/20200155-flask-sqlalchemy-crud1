@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="col-md-4 offset-md-4"> <!-- Crea un contenedor de columnas de tamaño mediano -->
+  <div class="card card-body bg-dark text-white"> <!-- Crea una tarjeta de bootstrap con fondo oscuro y texto blanco -->
+    <h1>Edit Task</h1> <!-- Crea un encabezado de nivel 1 -->
+
+    <form action="{{url_for('contacts.update', id=contact.id)}}" method="POST"> <!-- Crea un formulario con una acción y un método de envío -->
+      <div class="mb-3"> <!-- Crea un contenedor de margen inferior 3 para los campos de entrada -->
+        <label for="fullname">Escriba sus nombres completos:</label> <!-- Crea una etiqueta de texto para el campo de entrada -->
+        <input
+          type="text"
+          name="fullname"
+          value="{{contact.fullname}}"
+          class="form-control bg-dark text-white rounded-0"
+        /> <!-- Crea un campo de entrada de texto con un valor predeterminado y una clase de estilo de bootstrap -->
+      </div>
+      <div class="mb-3">
+        <label for="email">Escriba su correo:</label>
+        <input
+          type="email"
+          name="email"
+          value="{{contact.email}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="phone">Escriba su telefono:</label>
+        <input
+          type="tel"
+          name="phone"
+          value="{{contact.phone}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+
+      <button class="btn btn-primary">Actualizar</button> <!-- Crea un botón para enviar el formulario -->
+    </form>
+  </div>
+</div>
+
+{% endblock %}
